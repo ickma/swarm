@@ -119,7 +119,7 @@ class Swarm:
             # pass context_variables to agent functions
             if __CTX_VARS_NAME__ in func.__code__.co_varnames:
                 args[__CTX_VARS_NAME__] = context_variables
-            raw_result = function_map[name](**args)
+            raw_result = func(**args)
 
             result: Result = self.handle_function_result(raw_result, debug)
             partial_response.messages.append(
